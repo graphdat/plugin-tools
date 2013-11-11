@@ -1,0 +1,25 @@
+{
+	"name": "graphdat-plugin-tools",
+	"author": "Graphdat <support@graphdat.com>",
+	"license": "Apache v2",
+	"version": "0.0.1",
+	"private": false,
+	"title": "Graphat Plugin Tools",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/graphdat/plugin-tools.git"
+	},
+	"bugs": {
+		"url": "https://github.com/graphdat/plugin-tools/issues"
+	},
+	"description": "Provides helper functions for Graphdat plugin authors.  Should be require'd in all plugins.",
+	"keywords": [
+		"graphdat",
+		"metrics",
+		"monitoring"
+	],
+	"homepage": "http://www.graphdat.com",
+	"dependencies": {
+	},
+	"engine": "node >= 0.8.1"
+}
