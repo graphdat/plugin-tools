@@ -12,7 +12,7 @@
 	"bugs": {
 		"url": "https://github.com/graphdat/plugin-tools/issues"
 	},
-	"description": "Provides helper functions for Graphdat plugin authors.  Should be require'd in all plugins.",
+	"description": "Provides helper functions for Graphdat plugin authors.  Should be require'd in all plugins written in NodeJS.",
 	"keywords": [
 		"graphdat",
 		"metrics",
