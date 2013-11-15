@@ -54,7 +54,6 @@ function findProcId(cfg)
 		var stat = _fs.readFileSync('/proc/' + pid + '/stat', 'utf8').split(' ');
 		var cwd = silent(function() { return _fs.readlinkSync('/proc/' + pid + '/cwd'); });
 		var path = silent(function() { return _fs.readlinkSync('/proc/' + pid + '/exe'); });
-		var ppid = parseInt(stat[3]);
 		var re;
 
 		var prc = {
@@ -62,7 +61,8 @@ function findProcId(cfg)
 			path : path || '',
 			cwd : cwd || '',
 			pid : pid,
-			ppid : ppid
+			ppid : parseInt(stat[3]),
+			start : parseInt(stat[21])
 		};
 
 		if (cfg.processName)
@@ -138,6 +138,22 @@ function findProcId(cfg)
 			}
 
 			return { pid : parent.pid };
+		}
+		else if (cfg.reconcile === 'uptime')
+		{
+			// Find earliest start
+			var earliest;
+			hits.forEach(function(e)
+			{
+				if (!earliest || e.start < earliest.start)
+					earliest = e;
+			});
+
+			return { pid : earliest.pid };
+		}
+		else
+		{
+			return { pid : 0, reason : 'Unknown reconciliation' };
 		}
 	}
 }
