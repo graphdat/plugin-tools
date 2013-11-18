@@ -2,7 +2,7 @@
 	"name": "graphdat-plugin-tools",
 	"author": "Graphdat <support@graphdat.com>",
 	"license": "Apache v2",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": false,
 	"title": "Graphat Plugin Tools",
 	"repository": {
