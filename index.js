@@ -103,7 +103,7 @@ function findProcId(cfg)
 	if (!res)
 		return { pid : 0, reason : reason };
 
-	if (hits.length == 0)
+	if (hits.length === 0)
 		return { pid : 0 , reason : 'Unable to find a process'};
 	else if (hits.length == 1)
 		return { pid : hits[0].pid };
@@ -158,6 +158,20 @@ function findProcId(cfg)
 	}
 }
 
+/***
+ * Formats the source for Graphdat
+ *
+ * Graphdat does not allow spaces in the source name
+ *
+ */
+
+function formatSource(source)
+{
+	source = source || '';
+	return source.replace(/\s/g, '-');
+}
+
 module.exports = {
-	findProcId : findProcId
+	findProcId : findProcId,
+	formatSource : formatSource
 };
